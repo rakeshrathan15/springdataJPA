@@ -3,33 +3,35 @@ package com.neoteric.JPASpringBootData.InheritanceinJPA;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
 @Entity
-@DiscriminatorValue("OptionStock")
-@Data
-@EqualsAndHashCode(callSuper = true)
-@PrimaryKeyJoinColumn(name = "id")
+
+
+
+@Table(name = "future_stock",schema = "springdatajpa")
+
+
 public class FutureStock extends Stock{
 
 
-    public Date maturityDate;
+    public String maturityDate;
 
     public FutureStock(){
 
     }
 
-    public FutureStock(Date maturityDate) {
-        this.maturityDate = maturityDate;
+
+
+    public String getMaturityDate() {
+        return maturityDate;
     }
 
-    public FutureStock(int id, String name, double value, Date maturityDate) {
-        super(id, name, value);
+    public void setMaturityDate(String maturityDate) {
         this.maturityDate = maturityDate;
     }
-
-
 }

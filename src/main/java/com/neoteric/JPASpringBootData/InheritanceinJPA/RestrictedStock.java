@@ -8,10 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@DiscriminatorValue("RestrictedStock")
-@Data
-@EqualsAndHashCode(callSuper = true)
-@PrimaryKeyJoinColumn(name = "id")
+@Table(name = "restricted_stock",schema = "springdatajpa")
 public class RestrictedStock extends Stock {
 
     private int vestingPeriod;
@@ -20,14 +17,15 @@ public class RestrictedStock extends Stock {
 
     }
 
-    public RestrictedStock(int vestingPeriod) {
-        this.vestingPeriod = vestingPeriod;
+
+
+
+
+    public int getVestingPeriod() {
+        return vestingPeriod;
     }
 
-    public RestrictedStock(int id, String name, double value, int vestingPeriod) {
-        super(id, name, value);
+    public void setVestingPeriod(int vestingPeriod) {
         this.vestingPeriod = vestingPeriod;
     }
-
-
 }

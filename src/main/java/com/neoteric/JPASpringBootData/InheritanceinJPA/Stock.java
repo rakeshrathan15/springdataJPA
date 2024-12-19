@@ -6,15 +6,16 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@Data
-@Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "DatabaseNametype", discriminatorType = DiscriminatorType.STRING)
 
+@Inheritance(strategy = InheritanceType.JOINED)
+
+@Table(name = "stock" ,schema = "springdatajpa")
 public abstract class Stock  {
 
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
@@ -24,11 +25,29 @@ public abstract class Stock  {
 
     }
 
-    public Stock(int id, String name, double value) {
-        this.id = id;
-        this.name = name;
-        this.value = value;
+
+
+    public int getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
+    }
 }

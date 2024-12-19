@@ -3,14 +3,17 @@ package com.neoteric.JPASpringBootData.InheritanceinJPA;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@DiscriminatorValue("OptionStock")
-@Data
-@EqualsAndHashCode(callSuper = true)
-@PrimaryKeyJoinColumn(name = "id")
+
+
+
+@Table(name = "option_stock",schema = "springdatajpa")
+
+
 public class OptionStock  extends Stock{
 
     private double strikePrice;
@@ -18,12 +21,15 @@ public class OptionStock  extends Stock{
 
     }
 
-    public OptionStock(double strikePrice) {
-        this.strikePrice = strikePrice;
+
+
+
+
+    public double getStrikePrice() {
+        return strikePrice;
     }
 
-    public OptionStock(int id, String name, double value, double strikePrice) {
-        super(id, name, value);
+    public void setStrikePrice(double strikePrice) {
         this.strikePrice = strikePrice;
     }
 }
