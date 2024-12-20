@@ -19,6 +19,7 @@ public class JpaSpringBootDataApplication {
 
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(JpaSpringBootDataApplication.class, args);
 	}
 
